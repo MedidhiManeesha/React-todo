@@ -58,7 +58,13 @@ const Head = () => {
           <button type="button" className="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => setModalOpen(true)}>
             Add New Task
           </button>
-          <button type="button" className="btn btn-outline-light" onClick={() => deleteAllTasks()}>
+          <button type="button" className="btn btn-outline-light" onClick={() =>{
+            if(todos.length === 0){
+              toast.error('There are no items to delete')
+            }else{
+              toast.success('All items deleted successfully')
+              deleteAllTasks()
+            } }}>
             Delete All
           </button>
         </form>
